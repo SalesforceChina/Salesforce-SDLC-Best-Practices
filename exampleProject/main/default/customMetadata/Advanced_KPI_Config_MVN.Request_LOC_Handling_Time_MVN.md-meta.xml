@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>Request: LOC Handling Time</label>
+    <protected>false</protected>
+    <values>
+        <field>Active_MVN__c</field>
+        <value xsi:type="xsd:boolean">true</value>
+    </values>
+    <values>
+        <field>Add_Time_MVN__c</field>
+        <value xsi:type="xsd:boolean">false</value>
+    </values>
+    <values>
+        <field>End_Date_Field_MVN__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>End_Date_Lookup_MVN__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>End_Date_SObject__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Interaction_Field_MVN__c</field>
+        <value xsi:type="xsd:string">MED_Case__c</value>
+    </values>
+    <values>
+        <field>Set_Now_as_End_Date_MVN__c</field>
+        <value xsi:type="xsd:boolean">true</value>
+    </values>
+    <values>
+        <field>Start_Date_Field_MVN__c</field>
+        <value xsi:type="xsd:string">Escalated_to_LOC_DateTime__c</value>
+    </values>
+    <values>
+        <field>Start_Date_Lookup_MVN__c</field>
+        <value xsi:type="xsd:string">MED_Case__c</value>
+    </values>
+    <values>
+        <field>Start_Date_SObject_MVN__c</field>
+        <value xsi:type="xsd:string">Case</value>
+    </values>
+    <values>
+        <field>Target_Field_MVN__c</field>
+        <value xsi:type="xsd:string">LOC_Handling_Time_MVN__c</value>
+    </values>
+    <values>
+        <field>Target_SObject_MVN__c</field>
+        <value xsi:type="xsd:string">MED_Request__c</value>
+    </values>
+    <values>
+        <field>Test_Only_MVN__c</field>
+        <value xsi:type="xsd:boolean">false</value>
+    </values>
+</CustomMetadata>
