@@ -7,8 +7,9 @@
 </p>
 
 ## Release Strategy
-
-<img src="https://www.atlassian.com/dam/jcr:61ccc620-5249-4338-be66-94d563f2843c/05%20(2).svg" width="700">
+<p align="center">
+    <img src="https://www.atlassian.com/dam/jcr:61ccc620-5249-4338-be66-94d563f2843c/05%20(2).svg" width="700">
+</p>
 
 ## Contribute
 
