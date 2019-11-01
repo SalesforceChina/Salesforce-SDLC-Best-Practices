@@ -27,10 +27,6 @@
         <value xsi:type="xsd:string">MED_Case__c</value>
     </values>
     <values>
-        <field>Set_Now_as_End_Date_MVN__c</field>
-        <value xsi:type="xsd:boolean">true</value>
-    </values>
-    <values>
         <field>Start_Date_Field_MVN__c</field>
         <value xsi:type="xsd:string">SHI_Interaction_Date_Time__c</value>
     </values>
