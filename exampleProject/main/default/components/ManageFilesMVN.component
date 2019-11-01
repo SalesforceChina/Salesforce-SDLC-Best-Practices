@@ -1,0 +1,165 @@
+<apex:component controller="FileManagementControllerMVN" allowDML="true">
+    <apex:attribute name="recordId"
+        description="Id of the record to link files to and display in the component"
+        type="Id"
+        assignTo="{!mainRecordId}"
+        required="true"/>
+
+    <apex:attribute name="parentId"
+        description="Id of the parent record to pull files from"
+        type="Id"
+        assignTo="{!parentRecordId}"
+        required="true"/>
+
+    <apex:includeScript value="/soap/ajax/45.0/connection.js"/>
+    <apex:includeScript value="/support/console/45.0/integration.js"/>
+
+    <script type="text/javascript">
+        var parentTabId;
+        var subTabId;
+
+        (function() {
+            getFocusedPrimaryTabId();
+            getFocusedSubTabId();
+        })();
+
+        function getFocusedPrimaryTabId() {
+            sforce.console.getFocusedPrimaryTabId(function(result){
+                parentTabId = result.id;
+            });
+        }
+
+        function getFocusedSubTabId() {
+            sforce.console.getFocusedSubtabId(function(result){
+                subTabId = result.id;
+            });
+        }
+
+        function refreshSubTab() {
+            if(!subTabId) {
+                getFocusedSubTabId();
+            }
+            sforce.console.refreshSubtabById(subTabId, true, null, true);
+        }
+
+        function openNewSubTab(recordUrl, tabLabel) {
+            if(!parentTabId) {
+                getFocusedPrimaryTabId();
+            }
+            sforce.console.openSubtab(parentTabId , recordUrl, true, tabLabel, null);
+        }
+    </script>
+
+    <style>
+        .mavens .tooltip-container {
+            display:inline-block;
+        }
+
+        .mavens .tooltip-container .action-tooltip {
+            top: -5px;
+            left: 25px;
+        }
+    </style>
+
+    <apex:stylesheet value="{!URLFOR($Resource.MED_SLDS2x, 'assets/styles/salesforce-lightning-design-system-vf.min.css')}"/>
+    <apex:stylesheet value="{!URLFOR($Resource.MED_GlobalAssets, 'css/MavensSLDS.css')}"/>
+
+    <div class="mavens">
+        <apex:form >
+            <article class="slds-card">
+
+                <!-- Header with Icon and Buttons -->
+                <div class="slds-card__header slds-grid">
+                    <header class="slds-media slds-media_center slds-has-flexi-truncate">
+
+                        <div class="slds-media__figure">
+                            <c:MED_SLDSIcon group="doctype" name="attachment"/>
+                        </div>
+
+                        <div class="slds-media__body">
+                            <h2 class="slds-card__header-title"><span class="slds-text-heading--small">{!$Label.Attached_Files_MVN}</span></h2>
+                        </div>
+
+                        <apex:commandButton value="{!$Label.Delete_Files_MVN}"
+                            action="{!deleteFileLinks}"
+                            status="processing"
+                            rerender="tableContainer"
+                            oncomplete="refreshSubTab()"
+                            styleClass="slds-button slds-button--brand slds-col--bump-left" />
+                        <apex:commandButton value="{!$Label.Refresh_Files_MVN}"
+                            action="{!pullFilesFromParent}"
+                            status="processing"
+                            rerender="tableContainer"
+                            oncomplete="refreshSubTab()"
+                            styleClass="slds-button slds-button--brand slds-col--bump-left" />
+
+                    </header>
+                </div>
+                <!-- / Header with Icon and Buttons -->
+
+                <!-- Body with Table -->
+                <apex:outputPanel id="tableContainer">
+                    <apex:outputPanel styleClass="slds-card__body slds-card__body_inner slds-scrollable"
+                        style="height: 200px;"
+                        layout="block"
+                        rendered="{!linkedFiles.size > 0}">
+
+                        <!-- Table listing attached files -->
+                        <apex:dataTable styleClass="slds-table slds-table--bordered"
+                            var="fileWrapper"
+                            value="{!linkedFiles}">
+
+                            <!-- Selector for Deletion -->
+                            <apex:column >
+                                <div class="slds-form-element">
+                                    <div class="slds-form-element__control">
+                                        <label class="slds-checkbox">
+                                            <apex:inputCheckbox value="{!fileWrapper.selectedForDeletion}"/>
+                                            <span class="slds-checkbox--faux"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </apex:column>
+                            <!-- / Selector for Deletion -->
+
+                            <!-- File Details -->
+                            <apex:column >
+                                <apex:facet name="header">{!$ObjectType.ContentDocument.fields.Title.label}</apex:facet>
+                                <a href="javascript:void(0);"
+                                    onclick="openNewSubTab('{!fileWrapper.fileLink.ContentDocumentId}', '{!fileWrapper.fileLink.ContentDocument.Title}')" >
+                                    <apex:outputField value="{!fileWrapper.fileLink.ContentDocument.Title}" />
+                                </a>
+                            </apex:column>
+
+                            <apex:column >
+                                <apex:facet name="header">{!$ObjectType.ContentDocument.fields.LastModifiedDate.label}</apex:facet>
+                                <apex:outputField value="{!fileWrapper.fileLink.ContentDocument.LastModifiedDate}" />
+                            </apex:column>
+
+                            <apex:column >
+                                <apex:facet name="header">{!$Label.Created_By_MVN}</apex:facet>
+                                <apex:outputField value="{!fileWrapper.fileLink.ContentDocument.CreatedBy.Name}" />
+                            </apex:column>
+                            <!-- File Details -->
+
+                        </apex:dataTable>
+                        <!-- / Table listing attached files -->
+
+                    </apex:outputPanel>
+
+                    <!-- 'No Records' message -->
+                    <div class="slds-card__footer">
+                        <apex:outputPanel rendered="{!linkedFiles.size == 0}" styleClass="slds-media slds-media--center slds-has-flexi-truncate">
+                            <apex:outputText value="{!$Label.MED_No_Records_to_Display}" />
+                        </apex:outputPanel>
+                    </div>
+                    <!-- / 'No Records' message -->
+
+                </apex:outputPanel>
+                <!-- / Body with Table -->
+            </article>
+
+            <c:MED_SLDSNotifications />
+        </apex:form>
+    </div>
+</apex:component>
