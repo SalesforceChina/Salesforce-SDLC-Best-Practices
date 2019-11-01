@@ -1,0 +1,15 @@
+dist: bionic
+cache: false
+fail_fast: true
+jobs:
+  include:
+  # - stage: Static Code Analysis (PMD)
+  #   before_install:
+  #   - export URL=https://github.com/pmd/pmd/releases/download/pmd_releases%2F6.16.0/pmd-bin-6.16.0.zip
+  #   - wget $URL
+  #   - unzip pmd-bin-6.16.0.zip
+  #   name: Execute static code analysis
+  #   script:
+  #   - ./pmd-bin-6.16.0/bin/run.sh pmd -d "packages/shire-takeda/main/default/classes"
+  #     -R rulesets/apex_ruleset.xml -f textcolor
+  
