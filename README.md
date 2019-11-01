@@ -15,10 +15,6 @@ This project uses [GitHub Flow](https://guides.github.com/introduction/flow/) an
     <img src="https://www.atlassian.com/dam/jcr:61ccc620-5249-4338-be66-94d563f2843c/05%20(2).svg" width="500">
 </p>
 
-### For each new feature or fix 👩🏽‍💻
-
-![New Feature - Technical Architect / Developer](https://user-images.githubusercontent.com/1114325/61804068-2b03b200-ae2b-11e9-9f31-1adac6794740.png)
-
 # Release Notes
 ## 0.9.2
 * Update https-proxy-agent (https://www.npmjs.com/advisories/1184).
