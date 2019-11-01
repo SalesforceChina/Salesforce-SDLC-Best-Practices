@@ -12,7 +12,7 @@ This project uses [GitHub Flow](https://guides.github.com/introduction/flow/) an
 
 ## Release Strategy
 <p align="center">
-    <img src="https://www.atlassian.com/dam/jcr:61ccc620-5249-4338-be66-94d563f2843c/05%20(2).svg" width="700">
+    <img src="https://www.atlassian.com/dam/jcr:61ccc620-5249-4338-be66-94d563f2843c/05%20(2).svg" width="500">
 </p>
 
 ### To get started:
