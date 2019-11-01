@@ -6,6 +6,10 @@
     <img src="https://user-images.githubusercontent.com/1114325/66330319-11511180-e928-11e9-9e0c-249b332f7a00.png" width="700">
 </p>
 
+## Release Strategy
+
+<img src="https://www.atlassian.com/dam/jcr:61ccc620-5249-4338-be66-94d563f2843c/05%20(2).svg" width="700">
+
 ## Contribute
 
 This project uses [GitHub Flow](https://guides.github.com/introduction/flow/) and Continuous Integration with [Travis CI](https://travis-ci.com/mavens/shire-takeda-consolidation-mic).
