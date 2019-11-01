@@ -19,10 +19,6 @@
         <value xsi:nil="true"/>
     </values>
     <values>
-        <field>End_Date_SObject__c</field>
-        <value xsi:nil="true"/>
-    </values>
-    <values>
         <field>Interaction_Field_MVN__c</field>
         <value xsi:type="xsd:string">MED_Case__c</value>
     </values>
