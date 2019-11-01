@@ -30,4 +30,28 @@
         <field>Set_Now_as_End_Date_MVN__c</field>
         <value xsi:type="xsd:boolean">true</value>
     </values>
+    <values>
+        <field>Start_Date_Field_MVN__c</field>
+        <value xsi:type="xsd:string">SHI_Interaction_Date_Time__c</value>
+    </values>
+    <values>
+        <field>Start_Date_Lookup_MVN__c</field>
+        <value xsi:type="xsd:string">MED_Case__c</value>
+    </values>
+    <values>
+        <field>Start_Date_SObject_MVN__c</field>
+        <value xsi:type="xsd:string">Case</value>
+    </values>
+    <values>
+        <field>Target_Field_MVN__c</field>
+        <value xsi:type="xsd:string">SHI_Submitted_Time_in_Business_Hours__c</value>
+    </values>
+    <values>
+        <field>Target_SObject_MVN__c</field>
+        <value xsi:type="xsd:string">MED_Adverse_Event__c</value>
+    </values>
+    <values>
+        <field>Test_Only_MVN__c</field>
+        <value xsi:type="xsd:boolean">false</value>
+    </values>
 </CustomMetadata>
