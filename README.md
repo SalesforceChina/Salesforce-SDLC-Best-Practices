@@ -39,7 +39,7 @@ This project uses [GitHub Flow](https://guides.github.com/introduction/flow/) an
 ## 0.4.0
 * Add action for creating issues (@jens1o)
 * Fix parsing of repository names with dots (@wraith13)
-## 0.3.x
+## 0.3.0
 * Bugfixes
 ## 0.2.0
 * Support for private repositories (using Git credentials manager).
